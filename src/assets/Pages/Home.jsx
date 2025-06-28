@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import akImg from './../../assets/ak.jpg';
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -11,7 +12,7 @@ function Home() {
                 Anushka <span className='text-purple-700'>katole</span>
             </h1>
             <p className='text-white pt-1'>“Turning ideas into intelligent solutions.”</p>
-            <img src=" ak.jpg" alt="" class="pt-16 w-100 h-120" />
+            <img src=" {akImg}" alt="Anushka" class="pt-16 w-100 h-120" />
          <div className=''>
            <h1 className="text-7xl font-bold text-white  ">
               WEB DESIGNER
