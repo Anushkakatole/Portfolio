@@ -54,7 +54,7 @@ function Projects() {
 
       {/* 4 th project bg-gradient-to-b from-black via-gray-900 to-black text-white p-10 */}
       <div className='w-150 h-100 bg-gradient-to-r from-black-500 to--500 p-5 hover:from-purple-500 to-black-500 transition duration-300 ease-in-out'>
-      <img src="Cotten Weave.jpeg" alt="" className='w-cover h-80 border w-full'/>
+      <img src="./weave.jpeg" alt="cotten weave" className='w-cover h-80 border w-full'/>
           <div className="flex items-center  pt-6 gap-2">
              <h1 className="text-2xl">
              <Link to="/projects" className=" underline ml-5">             <Link to="/weave" className=" underline">Cotten Weave</Link></Link>
