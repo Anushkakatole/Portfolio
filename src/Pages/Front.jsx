@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import PageWrapper from "./PageWrapper"; 
 import About from "./About";
@@ -27,13 +27,19 @@ const marqueeItems = [
 ];
 
 function Front() {
-  const [mousePos, setMousePos] = useState({ x: -999, y: -999 });
+  const mouseX = useMotionValue(-999);
+  const mouseY = useMotionValue(-999);
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 18 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 18 });
 
   useEffect(() => {
-    const handle = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+    const handle = (e) => {
+      mouseX.set(e.clientX - 160);
+      mouseY.set(e.clientY - 160);
+    };
     window.addEventListener("mousemove", handle);
     return () => window.removeEventListener("mousemove", handle);
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <PageWrapper>
@@ -44,8 +50,7 @@ function Front() {
         {/* Mouse follower glow */}
         <motion.div
           className="fixed w-[320px] h-[320px] rounded-full bg-[#a8d4bc]/20 blur-[90px] pointer-events-none z-0"
-          animate={{ x: mousePos.x - 160, y: mousePos.y - 160 }}
-          transition={{ type: "spring", stiffness: 60, damping: 18 }}
+          style={{ x: springX, y: springY }}
         />
 
         {/* Animated background glows */}
@@ -298,7 +303,7 @@ function Front() {
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#4a9276] to-[#a8d4bc]" />
                 <span className="text-[9px] text-[#0d1a14]/30 uppercase tracking-[0.25em]">Numbers</span>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-3 mt-auto">
-                  {[["8.8", "CGPA"], ["20+", "Projects"], ["4", "Domains"], ["2+", "Clubs"]].map(([n, l]) => (
+                  {[["8.95 ", "CGPA"], ["20+", "Projects"], ["4", "Domains"], ["2+", "Clubs"]].map(([n, l]) => (
                     <div key={l} className="flex flex-col gap-0.5">
                       <span className="text-xl font-black text-[#2a5c47] leading-none tracking-tight">{n}</span>
                       <span className="text-[8px] text-[#0d1a14]/30 uppercase tracking-widest">{l}</span>

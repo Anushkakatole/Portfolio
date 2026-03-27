@@ -23,7 +23,7 @@ const achievements = [
     id: "01",
     year: "1st Year",
     title: "BTech AI & Data Science",
-    grade: "8.80 CGPA",
+    grade: "8.95 CGPA",
     highlight:
       "Active member of coding club and IEEE design team, contributed to creative designs and projects.",
     status: "Completed",
@@ -257,7 +257,7 @@ const Achievements = () => {
           className="mt-16 sm:mt-20 flex flex-wrap items-center gap-8 sm:gap-12 border-t border-[#0d1a14]/10 pt-10"
         >
           {[
-            ["8.80", "Best CGPA"],
+            ["8.95", "Best CGPA"],
             ["4", "Years Journey"],
             ["2+", "Clubs & Teams"],
             ["AI & DS", "Specialization"],
