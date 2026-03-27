@@ -1,7 +1,5 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import React, { useEffect } from "react";
-import Navbar from "./Navbar";
-import PageWrapper from "./PageWrapper"; 
+import { motion } from "framer-motion";
+import React from "react";
 import About from "./About";
 
 const particles = Array.from({ length: 22 }, (_, i) => ({
@@ -27,31 +25,9 @@ const marqueeItems = [
 ];
 
 function Front() {
-  const mouseX = useMotionValue(-999);
-  const mouseY = useMotionValue(-999);
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 18 });
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 18 });
-
-  useEffect(() => {
-    const handle = (e) => {
-      mouseX.set(e.clientX - 160);
-      mouseY.set(e.clientY - 160);
-    };
-    window.addEventListener("mousemove", handle);
-    return () => window.removeEventListener("mousemove", handle);
-  }, [mouseX, mouseY]);
-
   return (
-    <PageWrapper>
-      <Navbar />
-
+    <>
       <section className="relative min-h-screen bg-[#f5faf7] text-[#0f0f0f] overflow-hidden flex flex-col">
-
-        {/* Mouse follower glow */}
-        <motion.div
-          className="fixed w-[320px] h-[320px] rounded-full bg-[#a8d4bc]/20 blur-[90px] pointer-events-none z-0"
-          style={{ x: springX, y: springY }}
-        />
 
         {/* Animated background glows */}
         <motion.div
@@ -581,7 +557,7 @@ function Front() {
         </div>
 
       </section>
-    </PageWrapper>
+    </>
   );
 }
 

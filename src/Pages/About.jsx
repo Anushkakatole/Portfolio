@@ -612,7 +612,7 @@ function About() {
                     org: "IEEE Pune Section",
                     desc: "Creating visual identities, event graphics, and creative solutions for technical events and initiatives.",
                     tags: ["Design", "UI/UX"],
-                    image: "/ieeepunesection_logo.jpeg",
+                    image: "/ieee.png",
                     color: "pink",
                   },
 
