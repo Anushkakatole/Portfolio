@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'TheSeasons';
+  src: url('./fonts/TheSeasons-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TheSeasons';
+  src: url('./fonts/TheSeasons-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('./fonts/CinzelDecorative-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('./fonts/CinzelDecorative-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+html, body, #root {
+  cursor: none;
+  background: #f5faf7;
+  background-attachment: fixed;
+  color: #0f0f0f;
+  font-family: 'Cinzel Decorative', 'TheSeasons', 'Lato', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Remove hand cursor from buttons and interactive elements */
+button,
+a,
+[role="button"],
+.cursor-pointer {
+  cursor: none !important;
+}
+
+/* ✨ GLASSMORPHISM UTILITIES */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.glass-hover {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(79, 70, 229, 0.3);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.12);
+}
+
+.btn-glass {
+  background: rgba(42, 92, 71, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  color: #0f0f0f;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.btn-glass:hover {
+  background: rgba(42, 92, 71, 0.18);
+  border-color: rgba(79, 70, 229, 0.5);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.18);
+}
+
+/* ⚡ BOUNCY ANIMATIONS */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.4);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes text-shimmer {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-slide-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+/* 🎯 CARD STYLING */
+.card-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-glass:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(79, 70, 229, 0.3);
+  box-shadow: 0 30px 60px rgba(79, 70, 229, 0.12);
+}
+
+/* BENTO GRID CARDS - Modern Trending Layout */
+.bento-card {
+  background: linear-gradient(135deg, rgba(42, 92, 71, 0.05) 0%, rgba(74, 146, 118, 0.03) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  border-radius: 24px;
+  padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.bento-card:hover::before {
+  left: 100%;
+}
+
+.bento-card:hover {
+  transform: translateY(-12px) rotateX(2deg) rotateY(-2deg);
+  background: linear-gradient(135deg, rgba(42, 92, 71, 0.12) 0%, rgba(74, 146, 118, 0.08) 100%);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 30px 60px rgba(168, 85, 247, 0.25), 
+              0 0 60px rgba(236, 72, 153, 0.15);
+}
+
+/* 3D PERSPECTIVE EFFECTS */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.perspective-element {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* SCROLL ANIMATION */
+@keyframes scroll-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in-center {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-scroll-fade {
+  animation: scroll-fade-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-scale-in {
+  animation: scale-in-center 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-rotate-in {
+  animation: rotate-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* INTERACTIVE HOVER EFFECT */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-15px) scale(1.02);
+}
+
+/* GRADIENT TEXT ANIMATION */
+.gradient-text-animated {
+  background: linear-gradient(90deg, #2a5c47, #4a9276, #a8d4bc, #4a9276, #2a5c47);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
